@@ -44,6 +44,7 @@ public class MealRestController {
     public List<MealWithExceed> getAll() {
         int userId = AuthorizedUser.id();
         log.info("getAll for user {}", userId);
+        log.info(service.getAll(userId).toString());
         return MealsUtil.getWithExceeded(service.getAll(userId), AuthorizedUser.getCaloriesPerDay());
     }
 
